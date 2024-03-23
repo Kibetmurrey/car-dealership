@@ -1,0 +1,80 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Vehicle</title>
+    <link rel="stylesheet" href="sell your car.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sell Your Vehicle</h1>
+        <nav>
+            <ul>
+                <li><a href="dealership.html">Home</a></li>
+                <li><a href="Cars for sale.html">Cars for Sale</a></li>
+                <li><a href="sell your car.html">Sell Your Vehicle</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       <div class="form-container">
+        <form action="submit.php" method="post" onsubmit="return validateForm()">
+            <label for="make">Make:</label>
+            <input type="text" id="make" name="make" required><br><br>
+            
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required><br><br>
+            
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" min="2004" max="2099" required><br><br>
+            
+            <label for="mileage">Mileage (in km):</label>
+            <input type="number" id="mileage" name="mileage" min="0" max="200000" required><br><br>
+            
+            <label for="vin">VIN:</label>
+            <input type="text" id="vin" name="vin" required><br><br>
+            
+            <label for="condition">Condition:</label>
+            <select id="condition" name="condition" required>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var year = document.getElementById("year").value;
+            var mileage = document.getElementById("mileage").value;
+
+            if (year < 2004) {
+                alert("Year must be 2004 or later.");
+                return false;
+            }
+
+            if (mileage > 200000) {
+                alert("Mileage cannot exceed 200000 km.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Car Dealership. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
